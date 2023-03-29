@@ -1,4 +1,3 @@
-// const { PORT, DB_ADDRESS } = require('./')
 require('dotenv').config();
 const express = require('express');
 const bodyParser = require('body-parser');
@@ -12,15 +11,15 @@ const userRouter = require('./routes/users');
 const cardRouter = require('./routes/cards');
 const { errorHandler, wrongRouteHandler } = require('./middlewares/errors');
 const { requestLogger, errorLogger } = require('./middlewares/logger');
+const { PORT, DB_ADDRESS } = require('./config')
 
-const { PORT = 3001 } = process.env;
 const app = express();
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 mongoose.set('strictQuery', false);
-mongoose.connect('mongodb://127.0.0.1:27017/mestodb');
+mongoose.connect(DB_ADDRESS);
 
 app.use('*', cors());
 
