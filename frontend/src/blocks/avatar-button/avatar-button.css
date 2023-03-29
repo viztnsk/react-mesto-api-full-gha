@@ -1,0 +1,9 @@
+.avatar-button {
+  background: none;
+  box-shadow: none;
+  border: none;
+  box-sizing: border-box;
+}
+.avatar-button:hover {
+  cursor: pointer;
+}

@@ -1,0 +1,24 @@
+.add-button {
+  width: 150px;
+  height: 50px;
+  box-sizing: border-box;
+  border: 2px solid #FFFFFF;
+  border-radius: 2px;
+  background: none;
+  box-shadow: none;
+}
+.add-button:hover {
+  opacity: 0.6;
+  cursor: pointer;
+}
+@media screen and (max-width: 650px) {
+  .add-button {
+    width: 282px;
+    margin-top: 28px;
+    padding: 0;
+    grid-column: 1/2;
+    grid-row: 3;
+    justify-self: baseline;
+    align-self: baseline;
+  }
+}

@@ -1,0 +1,9 @@
+.form__input_type_name {
+  border: none;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 17px;
+  border-bottom: 1px solid rgba(196, 196, 196, 1);
+  color: #000000;
+}

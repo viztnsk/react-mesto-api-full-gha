@@ -1,0 +1,19 @@
+.form__input {
+  width: 358px;
+  border: none;
+  border-bottom: 1px solid rgba(196, 196, 196, 1);
+  color: rgba(196, 196, 196, 1);
+  margin: 0 auto 17px;
+  padding: 0 0 13px;
+  outline: none;
+}
+.form__input:valid {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+  color: #000000;
+}
+@media screen and (max-width: 650px) {
+  .form__input {
+  max-width: 238px;
+  margin: 0 auto;
+  }
+}

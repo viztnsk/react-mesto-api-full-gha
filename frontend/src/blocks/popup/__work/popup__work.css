@@ -1,0 +1,14 @@
+.popup__work {
+  max-width: 358px;
+  border: none;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+  margin: 30px 45px 0;
+  padding: 0;
+}
+@media screen and (max-width: 650px) {
+  .popup__work {
+  max-width: 238px;
+  margin: 30px 22px 0;
+  padding-top: 7px;
+  }
+}

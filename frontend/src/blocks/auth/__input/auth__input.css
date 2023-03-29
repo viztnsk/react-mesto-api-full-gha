@@ -1,0 +1,20 @@
+.auth__input {
+  width: 358px;
+  background-color: transparent;
+  border: none;
+  border-bottom: 1px solid rgba(255, 255, 255, 1);
+  color: rgba(255, 255, 255, 1);
+  margin: 0 auto 17px;
+  padding: 0 0 13px;
+  outline: none;
+}
+.auth__input::placeholder {
+  color: rgba(255, 255, 255, 1);
+}
+@media screen and (max-width: 650px) {
+  .auth__input {
+  max-width: 260px;
+  margin: 0 auto;
+  margin-bottom: 30px;
+  }
+}

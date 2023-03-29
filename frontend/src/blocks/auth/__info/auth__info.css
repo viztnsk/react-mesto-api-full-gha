@@ -1,0 +1,11 @@
+.auth__info {
+  margin-bottom: 130px;
+  padding: 0;
+  border: none;
+}
+@media screen and (max-width: 650px) {
+  .auth__info {
+    margin-bottom: 65px;
+    max-width: 260px;
+  }
+}
