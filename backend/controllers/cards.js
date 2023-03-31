@@ -9,7 +9,7 @@ const ForbiddenError = require('../errors/forbidden-error');
 
 const getCards = (req, res, next) => {
   Card.find({})
-    .populate("owner")
+    .populate('owner')
     .then((cards) => res.status(STATUS_OK).send(cards))
     .catch(next);
 };
@@ -37,8 +37,8 @@ const deleteCard = (req, res, next) => {
       const currentUser = req.user._id;
       const cardOwner = card.owner._id.toString();
       if (currentUser === cardOwner) {
-        Card.findByIdAndRemove(req.params.cardId).then((card) => {
-          res.status(STATUS_OK).send(cardResFormat(card));
+        Card.findByIdAndRemove(req.params.cardId).then((deletedCard) => {
+          res.status(STATUS_OK).send(cardResFormat(deletedCard));
         });
       } else {
         next(new ForbiddenError());
