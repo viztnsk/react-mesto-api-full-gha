@@ -6,7 +6,7 @@ const { PORT = 3001 } = process.env;
 const { DB_ADDRESS = 'mongodb://127.0.0.1:27017/mestodb' } = process.env;
 
 module.exports = {
-  NODE_ENV, 
+  NODE_ENV,
   JWT_SECRET,
   PORT,
   DB_ADDRESS,

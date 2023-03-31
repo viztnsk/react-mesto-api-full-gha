@@ -11,7 +11,7 @@ const userRouter = require('./routes/users');
 const cardRouter = require('./routes/cards');
 const { errorHandler, wrongRouteHandler } = require('./middlewares/errors');
 const { requestLogger, errorLogger } = require('./middlewares/logger');
-const { PORT, DB_ADDRESS } = require('./config')
+const { PORT, DB_ADDRESS } = require('./config');
 
 const app = express();
 
@@ -29,7 +29,7 @@ app.get('/crash-test', () => {
   setTimeout(() => {
     throw new Error('Сервер сейчас упадёт');
   }, 0);
-}); 
+});
 
 app.post('/signin', loginValidation, login);
 app.post('/signup', registerValidation, createUser);
