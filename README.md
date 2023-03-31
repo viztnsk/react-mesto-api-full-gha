@@ -5,8 +5,8 @@
 
 ## Ссылки на проект
 
-IP-адрес 178.154.204.171
+IP 178.154.204.171
 
-Frontend https://viztnsk.mesto.nomoredomains.work/
+Frontend https://viztnsk.mesto.nomoredomains.work/git
 
 Backend https://api.viztnsk.mesto.nomoredomains.work/
