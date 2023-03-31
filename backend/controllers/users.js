@@ -5,6 +5,7 @@ const { userResFormat } = require('../utils/utils');
 const {
   STATUS_OK,
 } = require('../utils/constants');
+const { NODE_ENV, JWT_SECRET } = require('../config');
 const NotFoundError = require('../errors/not-found-error');
 const BadRequestError = require('../errors/bad-request-error');
 const ConflictError = require('../errors/conflict-error');
@@ -100,7 +101,7 @@ const updateAvatar = (req, res, next) => {
 const login = (req, res, next) => {
   User.findUserByCredentials(req.body.email, req.body.password)
     .then((user) => {
-      const token = jwt.sign({ _id: user._id }, 'some-secret-key', { expiresIn: '7d' });
+      const token = jwt.sign({ _id: user._id }, NODE_ENV === 'production' ? JWT_SECRET : 'some-secret-key', { expiresIn: '7d' });
       res.status(STATUS_OK).send({ token });
     })
     .catch((err) => {

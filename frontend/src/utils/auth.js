@@ -1,4 +1,4 @@
-export const BASE_URL = 'http://localhost:3001';
+export const BASE_URL = 'https://api.viztnsk.mesto.nomoredomains.work/';
 
 function getResponseData(res) {
   if (!res.ok) {
