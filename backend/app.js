@@ -15,13 +15,13 @@ const { PORT, DB_ADDRESS } = require('./config')
 
 const app = express();
 
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true }));
-
 mongoose.set('strictQuery', false);
 mongoose.connect(DB_ADDRESS);
 
-app.use('*', cors());
+app.use(cors());
+
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
 
 app.use(requestLogger);
 

@@ -26,7 +26,6 @@ function App() {
   })
   const [status, setStatus] = useState(false);
   const [email, setEmail] = useState('');
-  const [like, setLike] = useState('');
 
   const [cards, setCards] = useState([]) 
   const [isEditProfilePopupOpen, setEditPopupOpen] = useState(false);
@@ -181,8 +180,7 @@ function App() {
             onCardClick={(card) => setselectedCard(card)}
             onCardLike={handleCardLike}
             onCardDelete={handleCardDelete}
-            cards={cards}
-            like={like} /> }/>
+            cards={cards} /> }/>
           <Route path="/sign-in" element= {
             <Login onLogin={handleLoginSubmit}/> }/>
           <Route path="/sign-up" element= {
