@@ -13,12 +13,24 @@ const { errorHandler, wrongRouteHandler } = require('./middlewares/errors');
 const { requestLogger, errorLogger } = require('./middlewares/logger');
 const { PORT, DB_ADDRESS } = require('./config');
 
+const whitelist = ['https://viztnsk.mesto.nomoredomains.work', 'http://127.0.0.1:3000'];
+const corsOptions = {
+  origin(origin, callback) {
+    if (whitelist.indexOf(origin) !== -1 || !origin) {
+      callback(null, true);
+    } else {
+      callback(new Error('Not allowed by CORS'));
+    }
+  },
+  methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+};
+
 const app = express();
 
 mongoose.set('strictQuery', false);
 mongoose.connect(DB_ADDRESS);
 
-app.use(cors());
+app.use(cors(corsOptions));
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
