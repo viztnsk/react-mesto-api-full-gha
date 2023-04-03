@@ -1,12 +1,12 @@
-:diffg RE/* eslint-disable import/no-extraneous-dependencies */
-:diffg RErequire('dotenv').config({ path: './config.js' });
+/* eslint-disable import/no-extraneous-dependencies */
+require('dotenv').config({ path: './config.js' });
 const express = require('express');
 const cors = require('cors');
 const helmet = require('helmet');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const { errors } = require('celebrate');
-:diffg REconst corsOptions = require('./middlewares/cors');
+const corsOptions = require('./middlewares/cors');
 const { login, createUser } = require('./controllers/users');
 const { loginValidation, registerValidation } = require('./middlewares/validation');
 const { auth } = require('./middlewares/auth');
@@ -16,7 +16,7 @@ const { errorHandler, wrongRouteHandler } = require('./middlewares/errors');
 const { requestLogger, errorLogger } = require('./middlewares/logger');
 const { PORT, DB_ADDRESS } = require('./config');
 
-:diffg REconst whitelist = ['https://viztnsk.mesto.nomoredomains.work', 'http://127.0.0.1:3000'];
+const whitelist = ['https://viztnsk.mesto.nomoredomains.work', 'http://127.0.0.1:3000'];
 const corsOptions = {
   origin(origin, callback) {
     if (whitelist.indexOf(origin) !== -1 || !origin) {
@@ -33,22 +33,22 @@ const app = express();
 mongoose.set('strictQuery', false);
 mongoose.connect(DB_ADDRESS);
 
-:diffg REapp.use(cors(corsOptions));
+app.use(cors(corsOptions));
 <<<<<<< HEAD
 
 =======
-:diffg REapp.use(helmet());
+app.use(helmet());
 >>>>>>> eacc31bf7a013e249d5412061b3f3c4fe00c3ae1
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 app.use(requestLogger);
 
-:diffg RE// app.get('/crash-test', () => {
-:diffg RE//   setTimeout(() => {
-:diffg RE//     throw new Error('Сервер сейчас упадёт');
-:diffg RE//   }, 0);
-:diffg RE// });
+// app.get('/crash-test', () => {
+//   setTimeout(() => {
+//     throw new Error('Сервер сейчас упадёт');
+//   }, 0);
+// });
 
 app.post('/signin', loginValidation, login);
 app.post('/signup', registerValidation, createUser);
