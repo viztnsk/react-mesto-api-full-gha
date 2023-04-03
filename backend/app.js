@@ -1,9 +1,12 @@
-require('dotenv').config();
+/* eslint-disable import/no-extraneous-dependencies */
+require('dotenv').config({ path: './config.js' });
 const express = require('express');
+const cors = require('cors');
+const helmet = require('helmet');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const { errors } = require('celebrate');
-const cors = require('cors');
+const corsOptions = require('./middlewares/cors');
 const { login, createUser } = require('./controllers/users');
 const { loginValidation, registerValidation } = require('./middlewares/validation');
 const { auth } = require('./middlewares/auth');
@@ -18,8 +21,8 @@ const app = express();
 mongoose.set('strictQuery', false);
 mongoose.connect(DB_ADDRESS);
 
-app.use(cors());
-
+app.use(cors(corsOptions));
+app.use(helmet());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 

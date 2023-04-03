@@ -1,4 +1,4 @@
-export const BASE_URL = 'https://api.viztnsk.mesto.nomoredomains.work/';
+export const BASE_URL = 'https://api.viztnsk.mesto.nomoredomains.work';
 
 function getResponseData(res) {
   if (!res.ok) {
@@ -13,6 +13,7 @@ export const register = (email, password) => {
     headers: {
       'Accept': 'application/json',
       'Content-Type': 'application/json',
+      
     },
     body: JSON.stringify({ email, password })
   }).then((response) => getResponseData(response))
